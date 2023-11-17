@@ -20,5 +20,8 @@
         }
     ],
     "minimum-stability": "stable",
-    "require": {}
+    "require": {
+        "php": "^8.2",
+        "psr/http-message": "^2.0"
+    }
 }
