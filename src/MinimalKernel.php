@@ -3,15 +3,14 @@
 namespace BlankFramework\MinimalKernel;
 
 use BlankFramework\MinimalKernel\Interface\MinimalControllerInterface;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
+use Symfony\Component\HttpFoundation\Request;
 
 class MinimalKernel
 {
     /**
      * @throws \Exception
      */
-    public static function run(ServerRequestInterface $request, MinimalControllerInterface $controller): void
+    public static function run(Request $request, MinimalControllerInterface $controller): void
     {
         $response = match ($request->getMethod()) {
             'GET' => $controller->get($request),
@@ -29,19 +28,6 @@ class MinimalKernel
             throw new \Exception('Method Not Allowed');
         }
 
-        self::sendResponse($response);
-    }
-
-    private static function sendResponse(ResponseInterface $response): void
-    {
-        foreach ($response->getHeaders() as $name => $values) {
-            foreach ($values as $value) {
-                header(sprintf('%s: %s', $name, $value), false);
-            }
-        }
-
-        http_response_code($response->getStatusCode());
-
-        echo $response->getBody();
+        $response->send();
     }
 }

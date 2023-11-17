@@ -2,18 +2,18 @@
 
 namespace BlankFramework\MinimalKernel\Interface;
 
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 interface MinimalControllerInterface
 {
-    public function get(ServerRequestInterface $request): ?ResponseInterface;
-    public function post(ServerRequestInterface $request): ?ResponseInterface;
-    public function put(ServerRequestInterface $request): ?ResponseInterface;
-    public function patch(ServerRequestInterface $request): ?ResponseInterface;
-    public function delete(ServerRequestInterface $request): ?ResponseInterface;
-    public function connect(ServerRequestInterface $request): ?ResponseInterface;
-    public function options(ServerRequestInterface $request): ?ResponseInterface;
-    public function trace(ServerRequestInterface $request): ?ResponseInterface;
-    public function head(ServerRequestInterface $request): ?ResponseInterface;
+    public function get(Request $request): ?Response;
+    public function post(Request $request): ?Response;
+    public function put(Request $request): ?Response;
+    public function patch(Request $request): ?Response;
+    public function delete(Request $request): ?Response;
+    public function connect(Request $request): ?Response;
+    public function options(Request $request): ?Response;
+    public function trace(Request $request): ?Response;
+    public function head(Request $request): ?Response;
 }
