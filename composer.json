@@ -23,5 +23,10 @@
     "require": {
         "php": "^8.2",
         "psr/http-message": "^2.0"
+    },
+    "scripts": {
+        "static-analysis": "phpstan analyse",
+        "auto-review": "rector process --dry-run",
+        "code-style": "phpcs --standard=PSR12 src"
     }
 }
