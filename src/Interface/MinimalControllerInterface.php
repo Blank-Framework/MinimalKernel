@@ -15,4 +15,5 @@ interface MinimalControllerInterface
     public function connect(ServerRequestInterface $request): ?ResponseInterface;
     public function options(ServerRequestInterface $request): ?ResponseInterface;
     public function trace(ServerRequestInterface $request): ?ResponseInterface;
+    public function head(ServerRequestInterface $request): ?ResponseInterface;
 }
