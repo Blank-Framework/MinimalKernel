@@ -9,7 +9,9 @@ use Symfony\Component\HttpFoundation\Response;
 
 /**
  * This kernel requires invokable classes. You then specify for each method
- * the controller that needs to be invoked.
+ * the controller that needs to be invoked. You must also specify a response
+ * in the event a controller has not been specified. This is to ensure that
+ * a method not allowed response can be returned.
  */
 class InvokableMinimalKernel
 {
